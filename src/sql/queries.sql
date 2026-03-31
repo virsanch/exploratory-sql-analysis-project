@@ -23,30 +23,38 @@ SELECT * FROM observations;
 
 -- MISSION 1
 -- Your query here;
+SELECT * FROM observations LIMIT 10;
 
 -- MISSION 2
 -- Your query here;
+SELECT DISTINCT region_id FROM observations;
 
 
 -- MISSION 3
 -- Your query here;
+SELECT COUNT(DISTINCT species_id) FROM observations;
 
 
 -- MISSION 4
 -- Your query here;
+SELECT COUNT(*) FROM observations WHERE region_id = 2;
 
 
 -- MISSION 5
 -- Your query here;
+SELECT COUNT(*) FROM observations WHERE date = '1998-08-08';
 
 
 -- MISSION 6
 -- Your query here;
+SELECT region_id, COUNT(*) AS total FROM observations GROUP BY region_id ORDER BY total DESC LIMIT 1;
 
 
 -- MISSION 7
 -- Your query here;
+SELECT species_id, COUNT(*) AS total FROM observations GROUP BY species_id ORDER BY total DESC LIMIT 5;
 
 
 -- MISSION 8
 -- Your query here;
+SELECT species_id, COUNT(*) AS total FROM observations GROUP BY species_id HAVING total < 5;
