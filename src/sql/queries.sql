@@ -58,3 +58,32 @@ SELECT species_id, COUNT(*) AS total FROM observations GROUP BY species_id ORDER
 -- MISSION 8
 -- Your query here;
 SELECT species_id, COUNT(*) AS total FROM observations GROUP BY species_id HAVING total < 5;
+
+-- MISSION 9
+
+SELECT observer, COUNT(*) AS total 
+FROM observations 
+GROUP BY observer 
+ORDER BY total DESC;
+
+
+-- MISSION 10
+
+SELECT name 
+FROM regions 
+JOIN observations ON regions.region_id = observations.region_id;
+
+
+-- MISSION 11
+SELECT scientific_name
+FROM species
+JOIN observations ON species.species_id = observations.species_id;
+
+-- MISSION 12
+SELECT name, scientific_name, COUNT(*) AS total
+FROM observations
+JOIN regions ON regions.region_id = observations.region_id
+JOIN species ON species.species_id = observations.species_id 
+GROUP BY name, scientific_name
+ORDER BY name, total DESC;
+
